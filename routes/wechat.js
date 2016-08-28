@@ -14,7 +14,13 @@ router.get('/', function *(next) {
 })
 
 router.post('/', function *(next) {
-    console.log(this)
+    this.use(wechat('beim').middleware(function *() {
+        console.log(this)
+        let message = this.weixin
+        console.log('message: ', message)
+        this.body = 'here'
+    }))
+    
 })
 
 module.exports = router
