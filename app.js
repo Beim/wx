@@ -7,12 +7,12 @@ const wechat = require('co-wechat')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
 
-app.use(wechat('beim').middleware(function *() {
+let wxx = wechat('beim').middleware(function *() {
     console.log('haha')
     let message = this.weixin
     console.log('message: ', message)
     this.body = 'hehe'
-}))
+})
 
 // *********start middwares******************
 // // koa-session
@@ -39,7 +39,8 @@ app.use(wechat('beim').middleware(function *() {
 //         koaRouter.use(key, elem.routes(), elem.allowedMethods())
 //     }
 // }
-// app.use(koaRouter.routes())
+koaRouter.use(wxx)
+app.use(koaRouter.routes())
 // *********end middwares******************
 
 module.exports = app
