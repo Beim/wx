@@ -13,8 +13,8 @@ router.get('/', function *(next) {
     this.body = 'hello'
 })
 
-// router.post('/', function *(next) {
-//     console.log(this.app)
-// })
+router.post('/', function *(next) {
+    console.log(this.app)
+})
 
 module.exports = router

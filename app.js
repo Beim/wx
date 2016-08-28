@@ -7,12 +7,12 @@ const wechat = require('co-wechat')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
 
-let wxx = wechat('beim').middleware(function *() {
-    console.log('haha')
-    let message = this.weixin
-    console.log('message: ', message)
-    this.body = 'hehe'
-})
+// let wxx = wechat('beim').middleware(function *() {
+//     console.log('haha')
+//     let message = this.weixin
+//     console.log('message: ', message)
+//     this.body = 'hehe'
+// })
 
 // *********start middwares******************
 // // koa-session
@@ -29,17 +29,16 @@ let wxx = wechat('beim').middleware(function *() {
 //         json: ['application/x-javascript']
 //     }
 // }))
-// koa-json
+// // koa-json
 // app.use(json())
 // koa-router
-// const routeOpts = require('./routes/config.json')
-// for (let key in routeOpts) {
-//     if (routeOpts.hasOwnProperty(key)) {
-//         let elem = require('./routes/' + routeOpts[key])
-//         koaRouter.use(key, elem.routes(), elem.allowedMethods())
-//     }
-// }
-koaRouter.use(wxx)
+const routeOpts = require('./routes/config.json')
+for (let key in routeOpts) {
+    if (routeOpts.hasOwnProperty(key)) {
+        let elem = require('./routes/' + routeOpts[key])
+        koaRouter.use(key, elem.routes(), elem.allowedMethods())
+    }
+}
 app.use(koaRouter.routes())
 // *********end middwares******************
 
