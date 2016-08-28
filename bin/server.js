@@ -14,7 +14,7 @@ const normalizePort = (val) => {
     return false
 }
 
-const port = normalizePort(process.env.PORT || '2333')
+const port = normalizePort(process.env.PORT || '80')
 const server = http.createServer(app.callback())
 
 server.listen(port)
