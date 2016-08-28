@@ -13,14 +13,21 @@ router.get('/', function *(next) {
     this.body = 'hello'
 })
 
-router.post('/', function *(next) {
-    this.use(wechat('beim').middleware(function *() {
-        console.log(this)
-        let message = this.weixin
-        console.log('message: ', message)
-        this.body = 'here'
-    }))
+router.post('/', wechat('beim').middleware(function *() {
+    console.log(this)
+    let message = this.weixin
+    console.log('message: ', message)
+    this.body = 'hahahaha'
+}))
+
+// router.post('/', function *(next) {
+//     this.use(wechat('beim').middleware(function *() {
+//         console.log(this)
+//         let message = this.weixin
+//         console.log('message: ', message)
+//         this.body = 'here'
+//     }))
     
-})
+// })
 
 module.exports = router
