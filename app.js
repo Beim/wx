@@ -7,13 +7,6 @@ const wechat = require('co-wechat')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
 
-// let wxx = wechat('beim').middleware(function *() {
-//     console.log('haha')
-//     let message = this.weixin
-//     console.log('message: ', message)
-//     this.body = 'hehe'
-// })
-
 // *********start middwares******************
 // // koa-session
 // app.keys = ['secret', 'keys'] // key of session
