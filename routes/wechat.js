@@ -6,7 +6,7 @@ router.get('/', function *(next) {
 })
 
 router.post('/', function *(next) {
-    console.log(this)
+    console.log(this.request.body)
     this.body = 'hello post'
 })
 
