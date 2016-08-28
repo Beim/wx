@@ -2,7 +2,7 @@ const router = require('koa-router')()
 
 router.get('/', function *(next) {
     console.log(this.query)
-    this.body = 'Hello World@'
+    this.body = this.query.echostr
 })
 
 module.exports = router
