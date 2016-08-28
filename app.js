@@ -3,8 +3,16 @@ const koaRouter = require('koa-router')()
 const parser = require('koa-bodyparser')
 const json = require('koa-json')
 const path = require('path')
+const wechat = require('co-wechat')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
+
+app.use('/wechat', wechat('beim').middleware(function *() {
+    console.log('haha')
+    let message = this.weixin
+    console.log('message: ', message)
+    this.body = 'hehe'
+}))
 
 // *********start middwares******************
 // // koa-session
@@ -24,14 +32,14 @@ const path = require('path')
 // koa-json
 // app.use(json())
 // koa-router
-const routeOpts = require('./routes/config.json')
-for (let key in routeOpts) {
-    if (routeOpts.hasOwnProperty(key)) {
-        let elem = require('./routes/' + routeOpts[key])
-        koaRouter.use(key, elem.routes(), elem.allowedMethods())
-    }
-}
-app.use(koaRouter.routes())
+// const routeOpts = require('./routes/config.json')
+// for (let key in routeOpts) {
+//     if (routeOpts.hasOwnProperty(key)) {
+//         let elem = require('./routes/' + routeOpts[key])
+//         koaRouter.use(key, elem.routes(), elem.allowedMethods())
+//     }
+// }
+// app.use(koaRouter.routes())
 // *********end middwares******************
 
 module.exports = app
