@@ -6,6 +6,10 @@ const path = require('path')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
 
+app.use(function *(next) {
+    console.log(this)
+})
+
 // *********start middwares******************
 // // koa-session
 // app.keys = ['secret', 'keys'] // key of session
