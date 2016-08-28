@@ -5,4 +5,9 @@ router.get('/', function *(next) {
     this.body = 'hello'
 })
 
+router.post('/', function *(next) {
+    console.log(this)
+    this.body = 'hello post'
+})
+
 module.exports = router
