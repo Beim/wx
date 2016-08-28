@@ -7,7 +7,7 @@ const wechat = require('co-wechat')
 // const session = require('koa-session')
 // const koaStatic = require('koa-static')
 
-app.use('/wechat', wechat('beim').middleware(function *() {
+app.use(wechat('beim').middleware(function *() {
     console.log('haha')
     let message = this.weixin
     console.log('message: ', message)
