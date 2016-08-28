@@ -8,8 +8,8 @@ router.post('/', wechat('beim').middleware(function *() {
     this.body = [
         {
             title: 'haha',
-            description: 'gfs',
-            picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
+            description: message,
+            picurl: 'http://img21.mtime.cn/pi/2011/04/04/161411.40182295_1000X1000.jpg',
             url: 'https://www.baidu.com/'
         }
     ]
