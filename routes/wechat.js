@@ -14,7 +14,7 @@ router.get('/', function *(next) {
 })
 
 router.post('/', function *(next) {
-    console.log(this.app)
+    console.log(this)
 })
 
 module.exports = router
