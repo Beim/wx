@@ -16,13 +16,13 @@ const path = require('path')
 // // koa-static
 // app.usr(koaStatic(path.join(__dirname, '/public')))
 // koa-parser
-app.use(parser({
-    extendTypes: {
-        json: ['application/x-javascript']
-    }
-}))
+// app.use(parser({
+//     extendTypes: {
+//         json: ['application/x-javascript']
+//     }
+// }))
 // koa-json
-app.use(json())
+// app.use(json())
 // koa-router
 const routeOpts = require('./routes/config.json')
 for (let key in routeOpts) {
