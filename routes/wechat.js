@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const wechat = require('co-wechat')
 
-this.use(wechat('beim').middleware(function *() {
+router.use(wechat('beim').middleware(function *() {
     let message = this.weixin
     console.log('message: ', message)
     this.body = 'here'
