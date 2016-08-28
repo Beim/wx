@@ -7,6 +7,7 @@ router.get('/', function *(next) {
 })
 
 router.post('/', function *(next) {
+    console.log(this.app)
     this.app.use(wechat('beim').middleware(function *() {
         let message = this.weixin
         console.log('message: ', message)
