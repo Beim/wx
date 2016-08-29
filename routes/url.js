@@ -30,7 +30,7 @@ router.get('/', function *(next) {
             case '-t':
                 break;
             default:
-                def(args).call(this)
+                def.call(this, args)
 
         }
         // let shortUrl = args[0]
