@@ -4,6 +4,7 @@ const path = require('path')
 
 const DB_PATH = path.resolve(__dirname, '../dbs/urls.json')
 
+// 直接重定向到对应url
 router.get('/:shortUrl', function *(next) {
     let shortUrl = this.params.shortUrl
     let data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
@@ -16,6 +17,7 @@ router.get('/:shortUrl', function *(next) {
     }
 })
 
+// 匹配, 用来设置url, 如 GET localhost/url?baidu;;www.baidu.com
 router.get('/', function *(next) {
     let args = this.querystring.split(';;')
     if (args.length > 1) {
