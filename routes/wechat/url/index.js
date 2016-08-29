@@ -17,10 +17,12 @@ const url = (args) => {
                 info.clicks += 1
                 fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
                 res(info.url)
+            } else {
+                res('not found')
             }
         } else if (args.length > 1) {
             // e.g. url google https://www.google.com/
-            http.get(`http://localhost/url?${args[0]};;${args[1]}`)
+            http.get(`http://localhost/url?${args[0]};;${args[1]};;${args[2] ? args[2] : ''}`)
             res('ok')
         }
     })
