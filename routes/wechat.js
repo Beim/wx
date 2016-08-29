@@ -9,6 +9,7 @@ router.post('/', wechat('beim').middleware(function *() {
     if (message.MsgType === 'text') {
         let arg = message.Content.split(' ')
         let parser = util.dispatch(arg[0])
+        console.log(parser)
         if (parser) {
             arg.shift()
             parser(arg).then((res) => {
