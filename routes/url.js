@@ -24,7 +24,7 @@ router.get('/', function *(next) {
         let shortUrl = args[0]
         let longUrl = args[1]
         let description = args[2] ? args[2] : ''
-        this.body = yield new Promise((resolve, reject) => {
+        let test = yield new Promise((resolve, reject) => {
             fs.readFile(DB_PATH, (err, data) => {
                 if (err) throw err;
                 data = JSON.parse(data)
@@ -37,6 +37,8 @@ router.get('/', function *(next) {
                 resolve('ok')
             })
         })
+        console.log('test: ', test)
+        this.body = 'haha'
     }
     // this.body = 'Hello World@123k'
 })
