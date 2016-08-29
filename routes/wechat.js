@@ -12,9 +12,10 @@ router.post('/', wechat('beim').middleware(function *() {
         console.log(parser)
         if (parser) {
             arg.shift()
-            yield parser(arg).then((res) => {
-                this.body = res
-            })
+            // yield parser(arg).then((res) => {
+            //     this.body = res
+            // })
+            this.body = yield parser(arg)
         } else {
             this.body = 'Hello World@'
         }
