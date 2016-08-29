@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const wechat = require('co-wechat')
+const fs = require('fs')
 
 router.post('/', wechat('beim').middleware(function *() {
     let message = this.weixin
