@@ -17,6 +17,22 @@ router.get('/:shortUrl', function *(next) {
 })
 
 router.get('/', function *(next) {
+    let args = this.querystring.split(';;')
+    if (args.length > 1) {
+        let shortUrl = args[0]
+        let longUrl = args[1]
+        let description = args[2] ? args[2] : ''
+        fs.readFile(DB_PATH, (err, data) => {
+            if (err) throw err;
+            data = JSON.parse(data)
+            data[shortUrl] = {
+                url: longUrl,
+                description: description,
+                clicks: 0
+            }
+            fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
+        })
+    }
     this.body = 'Hello World@'
 })
 
