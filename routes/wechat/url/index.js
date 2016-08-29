@@ -12,8 +12,11 @@ const url = (args) => {
             let data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
             let info = data[args[0]]
             if (info) {
+                info.clicks += 1
+                fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
                 res(info.url)
             }
+        } else if (args.length > 1) {
 
         }
     })
