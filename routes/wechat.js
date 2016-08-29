@@ -5,7 +5,7 @@ const fs = require('fs')
 router.post('/', wechat('beim').middleware(function *() {
     let message = this.weixin
     // console.log('message: ', message)
-    fs.writeFile('./log', JSON.stringify(message, null, 4), {encoding: 'utf8', flag: 'a'})
+    fs.writeFile('./log', JSON.stringify(message, null, 4) + '\n\n', {encoding: 'utf8', flag: 'a'})
     this.body = [
         {
             title: 'haha',
