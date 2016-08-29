@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 
-const DB_PATH = path.resolve(__dirname, '../dbs/urls.json')
+const DB_PATH = path.resolve(__dirname, '../../dbs/urls.json')
+console.log(__dirname)
 
 const func = function *(args) {
         let shortUrl = args[0]
