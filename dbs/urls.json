@@ -3,5 +3,10 @@
         "url": "https://www.google.com/",
         "descripttion": "分享链接",
         "clicks": 3
+    },
+    "beim": {
+        "url": "https://www.baidu.com/",
+        "description": "",
+        "clicks": 0
     }
 }

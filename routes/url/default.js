@@ -2,10 +2,13 @@ const fs = require('fs')
 const path = require('path')
 
 const DB_PATH = path.resolve(__dirname, '../../dbs/urls.json')
+const patt = new RegExp('http')
 
 const func = function *(args) {
         let shortUrl = args[0]
         let longUrl = args[1]
+        if (!patt.test(longUrl))
+            longUrl = 'http://' + longUrl
         let description = args[2] ? args[2] : ''
         let body = yield new Promise((resolve, reject) => {
             fs.readFile(DB_PATH, (err, data) => {
