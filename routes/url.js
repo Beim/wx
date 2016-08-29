@@ -34,7 +34,7 @@ router.get('/', function *(next) {
                     clicks: 0
                 }
                 fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
-                resolve('ok\nwhat')
+                resolve(`设置成功\n\t${args[0]}: ${args[1]}`)
             })
         })
         this.body = body

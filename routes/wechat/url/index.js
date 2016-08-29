@@ -18,7 +18,7 @@ const url = (args) => {
                 fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
                 res(info.url)
             } else {
-                res('not found')
+                res('Not found')
             }
         } else if (args.length > 1) {
             // e.g. url google https://www.google.com/
@@ -32,7 +32,6 @@ const url = (args) => {
                 result.on('end', () => {
                     res(chunk)
                 })
-                // res(result)
             })
         }
     })
