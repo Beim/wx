@@ -1,4 +1,4 @@
-const func = function (args) {
+const func = function *(args) {
         let shortUrl = args[0]
         let longUrl = args[1]
         let description = args[2] ? args[2] : ''
