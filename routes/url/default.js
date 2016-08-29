@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+const DB_PATH = path.resolve(__dirname, '../dbs/urls.json')
+
 const func = function *(args) {
         let shortUrl = args[0]
         let longUrl = args[1]
