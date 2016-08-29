@@ -24,8 +24,15 @@ const url = (args) => {
             // e.g. url google https://www.google.com/
             args = args.join(';;')
             http.get(`http://localhost/url?${args}`, (result) => {
-                console.log('result: ', result)
-                res(result)
+                result.setEncoding('utf8')
+                let chunk = ''
+                result.on('data', (c) => {
+                    chunk += c
+                })
+                result.on('end', () => {
+                    res(chunk)
+                })
+                // res(result)
             })
         }
     })
