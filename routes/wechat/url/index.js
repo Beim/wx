@@ -20,7 +20,7 @@ const url = (args) => {
             }
         } else if (args.length > 1) {
             // e.g. url google https://www.google.com/
-            http.get(`/url?${args[0]};;${args[1]}`)
+            http.get(`http://localhost/url?${args[0]};;${args[1]}`)
             res('ok')
         }
     })
