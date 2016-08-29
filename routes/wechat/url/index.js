@@ -14,13 +14,7 @@ const parse = (args, data) => {
             data = JSON.parse(data)
             res = ''
             for (let i in data) {
-                // res += `
-                //     ${i}
-                //         ${data[i].url}
-                //         ${data[i].description}
-
-                // `
-                res += (i + '\n' + data[i].url + '\n' + data[i].description + '\n\n')
+                res += (i + ' \n' + data[i].url + ' \n' + data[i].description + '\n\n')
             }
             break;
         case '-t':
