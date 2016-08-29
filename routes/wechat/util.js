@@ -1,5 +1,5 @@
 const path = require('path')
-const dispatchConfig = requrie(path.resolve(__dirname, '../../config/dispatch.json'))
+const dispatchConfig = require(path.resolve(__dirname, '../../config/dispatch.json'))
 
 const dispatch = (arg) => {
     if (dispatchConfig[arg]) {
