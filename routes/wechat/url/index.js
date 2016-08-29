@@ -23,9 +23,9 @@ const url = (args) => {
         } else if (args.length > 1) {
             // e.g. url google https://www.google.com/
             args = args.join(';;')
-            http.get(`http://localhost/url?${args}`)
-            // http.get(`http://localhost/url?${args[0]};;${args[1]};;${args[2] ? args[2] : ''}`)
-            res('ok')
+            http.get(`http://localhost/url?${args}`, (result) => {
+                res(result)
+            })
         }
     })
 }

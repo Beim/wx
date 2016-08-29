@@ -35,7 +35,7 @@ router.get('/', function *(next) {
             fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
         })
     }
-    this.body = 'Hello World@'
+    this.body = 'Hello World@123'
 })
 
 module.exports = router
