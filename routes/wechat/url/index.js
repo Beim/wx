@@ -4,6 +4,32 @@ const http  =require('http')
 
 const DB_PATH = path.resolve(__dirname, '../../../dbs/urls.json')
 
+const parse = (args, data) {
+    args = args.split(';;')
+    let res = null
+    switch (args[0]) {
+        case '-h':
+            break;
+        case '-s':
+            data = JSON.parse(data)
+            res = ''
+            for (let i in data) {
+                res += `
+                    ${i}
+                        ${data[i].url}
+                        ${data[i].description}
+
+                `
+            }
+            break;
+        case '-t':
+            break;
+        default:
+            res = data
+    }
+    return res
+}
+
 const url = (args) => {
     return new Promise((res, rej) => {
         let data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
@@ -30,7 +56,7 @@ const url = (args) => {
                     chunk += c
                 })
                 result.on('end', () => {
-                    res(chunk)
+                    res(parse(args, chunk))
                 })
             })
         }

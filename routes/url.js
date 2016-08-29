@@ -2,6 +2,7 @@ const router = require('koa-router')()
 const fs = require('fs')
 const path = require('path')
 const def = require('./url/default.js')
+const search = require('./url/search.js')
 
 const DB_PATH = path.resolve(__dirname, '../dbs/urls.json')
 
@@ -24,32 +25,18 @@ router.get('/', function *(next) {
     if (args.length > 1) {
         switch (args[0]) {
             case '-h':
+                yield help.call(this, args)
                 break;
             case '-s':
+                yield search.call(this, args)
                 break;
             case '-t':
+                yield top.call(this, args)
                 break;
             default:
                 yield def.call(this, args)
 
         }
-        // let shortUrl = args[0]
-        // let longUrl = args[1]
-        // let description = args[2] ? args[2] : ''
-        // let body = yield new Promise((resolve, reject) => {
-        //     fs.readFile(DB_PATH, (err, data) => {
-        //         if (err) throw err;
-        //         data = JSON.parse(data)
-        //         data[shortUrl] = {
-        //             url: longUrl,
-        //             description: description,
-        //             clicks: 0
-        //         }
-        //         fs.writeFile(DB_PATH, JSON.stringify(data, null, 4))
-        //         resolve(`设置成功\n ${args[0]} ${args[1]}`)
-        //     })
-        // })
-        // this.body = body
     } else {
         this.body = 'ERROR@'
     }
