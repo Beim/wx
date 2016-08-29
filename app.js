@@ -25,7 +25,7 @@ const wechat = require('co-wechat')
 // // koa-json
 // app.use(json())
 // koa-router
-const routeOpts = require('./routes/config.json')
+const routeOpts = require('./config/routes.json')
 for (let key in routeOpts) {
     if (routeOpts.hasOwnProperty(key)) {
         let elem = require('./routes/' + routeOpts[key])
