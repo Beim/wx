@@ -4,7 +4,7 @@ const http  =require('http')
 
 const DB_PATH = path.resolve(__dirname, '../../../dbs/urls.json')
 
-const parse = (args, data) {
+const parse = (args, data) => {
     args = args.split(';;')
     let res = null
     switch (args[0]) {
