@@ -3,8 +3,8 @@ const wechat = require('co-wechat')
 
 router.post('/', wechat('beim').middleware(function *() {
     let message = this.weixin
-    console.log('message: ', message)
-    // this.body = 'hahahaha'
+    // console.log('message: ', message)
+    fs.writeFile('./log', JSON.stringify(message, null, 4), {encoding: 'utf8', flag: 'a'})
     this.body = [
         {
             title: 'haha',

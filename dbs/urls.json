@@ -1,14 +1,7 @@
 {
-    "baidu": {
-        "url": "https://www.baidu.com/",
-        "description": "百度"
-    },
-    "google": {
-        "url": "https://www.google.com/",
-        "description": "谷歌"
-    },
     "share": {
         "url": "https://www.google.com/",
-        "description": "分享"
+        "descripttion": "分享链接",
+        "clicks": 3
     }
 }
