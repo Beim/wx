@@ -1,4 +1,5 @@
 {
     "url": "url/index.js",
-    "unurl": "unurl/index.js"
+    "unurl": "unurl/index.js",
+    "test": "test/index.js"
 }
