@@ -12,6 +12,7 @@ const biliload = (args) => {
                 response.on('end', () => {
                     let result = JSON.parse(chunk)
                     if (result.flag) {
+                        http.get('http://localhost/url?bilishare;;' + result.href)
                         let str = 'av号: ' + args[0] + '\n' + result.info + '\n' + result.href
                         resolve(str)
                     } else {
