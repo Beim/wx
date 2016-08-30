@@ -8,5 +8,10 @@
         "url": "https://www.baidu.com/",
         "description": "",
         "clicks": 0
+    },
+    "beim1": {
+        "url": "http://rainymood.com",
+        "description": "rainy",
+        "clicks": 1
     }
 }

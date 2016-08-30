@@ -3,6 +3,8 @@ const fs = require('fs')
 const path = require('path')
 const def = require('./url/default.js')
 const search = require('./url/search.js')
+const top = require('./url/top.js')
+const help = require('./url/help.js')
 
 const DB_PATH = path.resolve(__dirname, '../dbs/urls.json')
 
