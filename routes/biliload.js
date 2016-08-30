@@ -29,9 +29,12 @@ router.get('/:avnum', function *(next) {
     // 解析出下载链接
     let $ = cheerio.load(body)
     let downloadTag = $('#download a')[2]
-    if (downloadTag) {
+    let headingTag = $('.media .media-heading').text()
+    if (downloadTag && headingTag) {
         let body = {
             flag: true,
+            heading: headingTag,
+            avnum: this.params.avnum,
             href: downloadTag.attribs.href,
             info: downloadTag.children[0].data
         }
