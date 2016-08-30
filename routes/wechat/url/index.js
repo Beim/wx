@@ -18,6 +18,11 @@ const parse = (args, data) => {
             }
             break;
         case '-t':
+            data = JSON.parse(data)
+            res = ''
+            for (let i of data) {
+                res += (i.shortUrl + ' \n' + i.longUrl + ' \n\n')
+            }
             break;
         default:
             res = data
