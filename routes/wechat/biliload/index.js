@@ -13,7 +13,7 @@ const biliload = (args) => {
                     let result = JSON.parse(chunk)
                     if (result.flag) {
                         http.get('http://localhost/url?bilishare;;' + result.href)
-                        let str = 'av号: ' + args[0] + '\n' + result.info + '\n' + result.href
+                        let str = 'av号: ' + args[0] + '\n' + result.info + '\n' + result.href + '\n或 \nhttp://beim.site/url/bilishare \n(非永久)' 
                         resolve(str)
                     } else {
                         resolve('Failed to parse@')
