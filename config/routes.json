@@ -1,5 +1,6 @@
 {
     "/": "index",
     "/wechat": "wechat",
-    "/url": "url"
+    "/url": "url",
+    "/biliload": "biliload"
 }

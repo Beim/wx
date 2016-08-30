@@ -1,5 +1,6 @@
 {
     "url": "url/index.js",
     "unurl": "unurl/index.js",
+    "biliload": "biliload/index.js",
     "test": "test/index.js"
 }

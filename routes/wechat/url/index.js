@@ -49,13 +49,13 @@ const url = (args) => {
         } else if (args.length > 1) {
             // e.g. url google https://www.google.com/
             args = args.join(';;')
-            http.get(`http://localhost/url?${args}`, (result) => {
-                result.setEncoding('utf8')
+            http.get(`http://localhost/url?${args}`, (response) => {
+                response.setEncoding('utf8')
                 let chunk = ''
-                result.on('data', (c) => {
+                response.on('data', (c) => {
                     chunk += c
                 })
-                result.on('end', () => {
+                response.on('end', () => {
                     res(parse(args, chunk))
                 })
             })
