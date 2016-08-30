@@ -33,6 +33,7 @@ router.get('/', function *(next) {
                 yield search.call(this, args)
                 break;
             case '-t':
+                console.log('before top\n')
                 yield top.call(this, args)
                 break;
             default:
