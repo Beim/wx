@@ -13,9 +13,9 @@ const biliload = (args) => {
                     let result = JSON.parse(chunk)
                     if (result.flag) {
                         let str = 'av号: ' + args[0] + '\n' + result.info + '\n' + result.href
-                        res(str)
+                        resolve(str)
                     } else {
-                        res('Failed to parse@')
+                        resolve('Failed to parse@')
                     }
                 })
             })
