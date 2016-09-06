@@ -23,7 +23,10 @@ setInterval(() => {
                 return b.publish - a.publish
             })
             fs.writeFileSync(path.resolve(__dirname, '../dbs/moocDb.json'), JSON.stringify(res, null, 4))
-            if (initData.publish && parseInt(res[0].publish) > parseInt(initData.publish)) {
+            if (!initData.publish) {
+                initData = res[0]
+                sendData(res[0])
+            } else if (res[0].publish && parseInt(res[0].publish) > parseInt(initData.publish)) {
                 initData = res[0]
                 sendData(res[0])
             }
@@ -31,4 +34,4 @@ setInterval(() => {
             console.log(e)
         }
     })
-}, 1000 * 1)
+}, 1000 * 60 * 60)
