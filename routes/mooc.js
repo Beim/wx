@@ -18,15 +18,17 @@ const sendData = (data) => {
 setInterval(() => {
     util.run(function *() {
         try {
-            let res = yield request.getMoocAnnounces()
+            let res = yield request.getSpocAnnounces()
             res.sort((a, b) => {
                 return b.publish - a.publish
             })
             fs.writeFileSync(path.resolve(__dirname, '../dbs/moocDb.json'), JSON.stringify(res, null, 4))
-            if (!initData.publish) {
-                initData = res[0]
-                sendData(res[0])
-            } else if (res[0].publish && parseInt(res[0].publish) > parseInt(initData.publish)) {
+            if (!initData || !initData.publish) {
+                if (res[0]) {
+                    initData = res[0]
+                    sendData(res[0])
+                }
+            } else if (res[0] && res[0].publish && parseInt(res[0].publish) > parseInt(initData.publish)) {
                 initData = res[0]
                 sendData(res[0])
             }
@@ -34,4 +36,4 @@ setInterval(() => {
             console.log(e)
         }
     })
-}, 1000 * 60 * 60)
+}, 1000 * 3)

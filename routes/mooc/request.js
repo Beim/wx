@@ -263,7 +263,7 @@ const getAnnounces = (flag) => {
                 // cookie = yield login('964873559@qq.com', '13669094224')
                 let session = yield login('805908499@qq.com', '112223334')
                 yield visitMainPage(session)
-                let result = yield getMoocAnnounce(session)
+                let result = yield func(session)
                 result = util.decode(result)
                 let arr = util.parseAnnounce(result)
                 // for (let i in arr) {
