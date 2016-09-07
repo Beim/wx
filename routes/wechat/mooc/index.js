@@ -18,22 +18,20 @@ const test = (args) => {
             } else {
                 resolve('邮箱重复')
             }
+        } else if (args.length === 2) {
+            if (args[0] === '-d') {
+                let users = fs.readFileSync(DB)
+                users = JSON.parse(users)
+                if (users.indexOf(args[1]) < 0) {
+                    resolve('邮箱不存在')
+                } else {
+                    users = users.filter((elem) => {
+                        return elem !== args[1]
+                    })
+                    resolve('删除成功')
+                }
+            }
         }
-        // let body = [
-        //     {
-        //         title: 'test',
-        //         description: 'test des',
-        //         picurl: 'https://beim.github.io/images/hand_zheng.jpg',
-        //         url: 'https://www.baidu.com/'
-        //     },
-        //     {
-        //         title: 'test1',
-        //         description: 'test1 des',
-        //         picurl: 'https://beim.github.io/images/hand_zheng.jpg',
-        //         url: 'https://www.baidu.com/'
-        //     }
-        // ]
-        // resolve(body)
     })
 }
 
