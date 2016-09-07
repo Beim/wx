@@ -28,6 +28,7 @@ const test = (args) => {
                     users = users.filter((elem) => {
                         return elem !== args[1]
                     })
+                    fs.writeFileSync(DB, JSON.stringify(users, null, 4))
                     resolve('删除成功')
                 }
             }
