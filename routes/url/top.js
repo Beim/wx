@@ -5,7 +5,7 @@ const DB_PATH = path.resolve(__dirname, '../../dbs/urls.json')
 
 const func = function *(args) {
     let num = (parseInt(args[1]).toString() === 'NaN') ? 3 : parseInt(args[1])
-    num = num > 10 ? 10 : num
+    num = num > 100 ? 100 : num
     let data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
     let dataArr = []
     for (let i in data) {
