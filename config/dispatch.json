@@ -1,7 +1,9 @@
 {
     "url": "url/index.js",
+    "u": "url/index.js",
     "unurl": "unurl/index.js",
     "biliload": "biliload/index.js",
+    "b": "biliload/index.js",
     "mooc": "mooc/index.js",
     "test": "test/index.js"
 }
