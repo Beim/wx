@@ -7,10 +7,11 @@ const getIP = () => {
             let data = ''
             res.on('data', (c) => {data += c})
             res.on('end', () => {
+                data = JSON.parse(data)
                 for (let i in data) {
                     data[i].index = i
                 }
-                resolve(JSON.parse(data))
+                resolve(data)
             })
         })
     })
