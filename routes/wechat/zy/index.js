@@ -44,7 +44,7 @@ const parseNum = (num, data) => {
 
 const zy = (args) => {
     return new Promise((resolve ,reject) => {
-        getIP.then((data) => {
+        getIP().then((data) => {
             if (args.length === 0) {
                 resolve(JSON.stringify(data, null, 4))
             } else if (args.length === 1) {
