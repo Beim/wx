@@ -56,7 +56,7 @@ const zy = (args) => {
                     resolve('未查找到对应编号')
                 }
             } else if (args.length === 2) {
-                if (args[0] == 'ip') {
+                if (args[0] == 'num') {
                     let num = args[1]
                     let res = parseNum(num, data)
                     if (res) {
@@ -64,7 +64,7 @@ const zy = (args) => {
                     } else {
                         resolve('未查找到对应编号')
                     }
-                } else if (args[0] == 'num') {
+                } else if (args[0] == 'ip') {
                     let ip = args[1]
                     let res = parseIP(ip, data)
                     if (res) {
