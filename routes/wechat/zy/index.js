@@ -17,7 +17,7 @@ const parseIP = (ip, data) => {
     let patt = new RegExp(ip)
     let res = null
     for (let i in data) {
-        if (data[i].ip.test(patt)) {
+        if (patt.test(data[i].ip)) {
             res = {
                 index: i,
                 ip,
