@@ -43,7 +43,7 @@ const parseNum = (num, data) => {
     return res
 }
 
-cosnt getCity = (ip) => {
+const getCity = (ip) => {
     return new Promise((resolve, reject) => {
         http.get(`http://ipinfo.io/${ip}`, (res) => {
             res.setEncoding('utf8')
