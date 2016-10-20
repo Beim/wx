@@ -43,6 +43,19 @@ const parseNum = (num, data) => {
     return res
 }
 
+cosnt getCity = (ip) => {
+    return new Promise((resolve, reject) => {
+        http.get(`http://ipinfo.io/${ip}`, (res) => {
+            res.setEncoding('utf8')
+            let data = ''
+            res.on('data', (c) => {data += c})
+            res.on('end', () => {
+                resolve(JSON.parse(data))
+            })
+        })
+    })
+}
+
 const zy = (args) => {
     return new Promise((resolve ,reject) => {
         getIP().then((data) => {
@@ -74,7 +87,14 @@ const zy = (args) => {
                         resolve('未查找到对应ip')
                     }
                 } else if (args[0] == 'city') {
-                    
+                    let index = args[1]
+                    if (data.length > index && parseInt(index) > -1) {
+                        getCity(data[index].ip).then((info) => {
+                            resolve(JSON.stringify(info, null, 4))
+                        })
+                    } else {
+                        resolve('数组越界')
+                    }
                 }
             } else if (args.length === 3) {
                 
