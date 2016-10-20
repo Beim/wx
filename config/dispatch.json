@@ -5,5 +5,6 @@
     "biliload": "biliload/index.js",
     "b": "biliload/index.js",
     "mooc": "mooc/index.js",
-    "test": "test/index.js"
+    "test": "test/index.js",
+    "zy": "zy/index.js"
 }

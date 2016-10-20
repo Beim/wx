@@ -2,5 +2,6 @@
     "/": "index",
     "/wechat": "wechat",
     "/url": "url",
-    "/biliload": "biliload"
+    "/biliload": "biliload",
+    "/zy": "zy"
 }
