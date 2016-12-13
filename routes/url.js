@@ -17,7 +17,9 @@ router.get('/:shortUrl', function *(next) {
         fs.writeFile(DB_PATH, JSON.stringify(data, null, 4)) 
         this.redirect(data[shortUrl].url)
     } else {
-        this.body = 'ERROR@'
+        // this.body = 'ERROR@'
+        let blog_url = `http://blog.beim.site/2016/12/13/beim-url-shortern-%E6%9C%8D%E5%8A%A1/`
+        this.redirect(blog_url)
     }
 })
 
