@@ -26,15 +26,19 @@ router.get('/', function *(next) {
     let args = this.querystring.split(';;')
     if (args.length > 1) {
         switch (args[0]) {
+            // 帮助
             case '-h':
                 yield help.call(this, args)
                 break;
+            // 按文字搜索
             case '-s':
                 yield search.call(this, args)
                 break;
+            // 按点击排名搜索
             case '-t':
                 yield top.call(this, args)
                 break;
+            // 默认, 设置别名
             default:
                 yield def.call(this, args)
         }
