@@ -23,7 +23,7 @@ const func = function *(args) {
             fs.writeFile(DB_PATH, JSON.stringify(data, null, 4), (err) => {
                 if (err) console.log(err)
             })
-            resolve(`设置成功\n ${args[0]} ${args[1]}`)
+            resolve(`设置成功\n ${shortUrl} ${args[1]}`)
         })
     })
     this.body = body
