@@ -1,10 +1,11 @@
 const fs = require('fs')
 const path = require('path')
+const querystring = require('querystring')
 
 const DB_PATH = path.resolve(__dirname, '../../dbs/urls.json')
 
 const func = function *(args) {
-    let shortUrl = args[1]
+    let shortUrl = querystring.unescape(args[1])
     if (shortUrl) {
         let data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
         let body = {}
